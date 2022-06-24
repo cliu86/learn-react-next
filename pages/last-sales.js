@@ -4,9 +4,9 @@ import useSWR from 'swr';
 function LastSalesPage(props) {
   const [sales, setSales] = useState(props.sales);
   // const [isLoading, setIsLoading] = useState(false);
-
+  const fetcher = (...args) => fetch(...args).then((res) => res.json())
   const { data, error } = useSWR(
-    'https://nextjs-course-c81cc-default-rtdb.firebaseio.com/sales.json'
+    'https://next-react-learn-default-rtdb.firebaseio.com/sales.json', fetcher
   );
 
   useEffect(() => {
